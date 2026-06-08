@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AstroBand | Dashboard IoT</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="logo" aria-label="Logo AstroBand">AB</div>
+          <div>
+            <p class="eyebrow">FIAP | Disruptive Architectures</p>
+            <h1>AstroBand</h1>
+          </div>
+        </div>
+        <div class="connection" id="connectionStatus">
+          <span class="dot"></span>
+          Aguardando API
+        </div>
+      </header>
+
+      <section class="control-card card">
+        <div>
+          <p class="label">ESP32 Wokwi</p>
+          <h2>Conexao em tempo real</h2>
+        </div>
+        <form id="apiForm" class="api-form">
+          <input id="apiHost" type="text" placeholder="http://localhost:9080" aria-label="Endereco da API REST do ESP32" />
+          <button type="submit">Usar REST</button>
+        </form>
+      </section>
+
+      <section class="summary-grid">
+        <article class="card astronaut-card">
+          <div class="astronaut-avatar">AB</div>
+          <div>
+            <p class="label">Pulseira inteligente</p>
+            <h2>Astronauta A-01</h2>
+            <p class="muted">AstroBand Mission Kit</p>
+          </div>
+        </article>
+
+        <article class="card metric-card">
+          <p class="label">Temperatura</p>
+          <strong id="temperatureValue">--.- C</strong>
+          <span id="temperatureStatus" class="pill">Aguardando</span>
+        </article>
+
+        <article class="card metric-card">
+          <p class="label">Batimentos</p>
+          <strong id="heartValue">--- bpm</strong>
+          <span id="heartStatus" class="pill">Aguardando</span>
+        </article>
+
+        <article class="card metric-card">
+          <p class="label">Localizacao</p>
+          <strong id="locationValue">-- cm</strong>
+          <span id="locationStatus" class="pill">Aguardando</span>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <article class="card chart-card">
+          <div class="section-head">
+            <div>
+              <p class="label">Telemetria</p>
+              <h2>Missao em tempo real</h2>
+            </div>
+            <span id="lastUpdate">Sem leituras</span>
+          </div>
+          <canvas id="telemetryChart" width="900" height="340"></canvas>
+        </article>
+
+        <aside class="side-panel">
+          <article class="card status-card" id="riskCard">
+            <p class="label">Status da missao</p>
+            <strong id="generalStatus">Aguardando dados</strong>
+            <p id="statusDescription">Inicie a simulacao no Wokwi e informe o IP do ESP32 exibido no Monitor Serial.</p>
+          </article>
+
+          <article class="card emergency-card" id="emergencyCard">
+            <p class="label">Alerta de emergencia</p>
+            <strong id="emergencyStatus">Nao acionado</strong>
+          </article>
+
+          <article class="card topic-card">
+            <p class="label">Fonte dos dados</p>
+            <code id="endpointLabel">MQTT: fiap/iot/astroband/telemetria</code>
+          </article>
+
+          <article class="card feed-card">
+            <p class="label">Ultimas leituras</p>
+            <ul id="messageFeed"></ul>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

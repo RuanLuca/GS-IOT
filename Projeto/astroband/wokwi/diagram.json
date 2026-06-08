@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "AstroBand - FIAP",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": 2.84, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potTemp", "top": -126.1, "left": -174.2, "attrs": { "label": "Temperatura" } },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -132.9, "left": 153.6, "attrs": { "distance": "120" } },
+    { "type": "wokwi-pushbutton", "id": "btnEmergency", "top": 95.8, "left": 170.8, "attrs": { "color": "red", "label": "SOS" } },
+    { "type": "wokwi-led", "id": "ledHeart", "top": 124.8, "left": -161.8, "rotate": 270, "attrs": { "color": "red", "label": "Batimento" } },
+    { "type": "wokwi-led", "id": "ledStatus", "top": 163.2, "left": -161.8, "rotate": 270, "attrs": { "color": "blue", "label": "Status" } },
+    { "type": "wokwi-resistor", "id": "rHeart", "top": 139.2, "left": -91.2, "attrs": { "value": "1000" } },
+    { "type": "wokwi-resistor", "id": "rStatus", "top": 177.6, "left": -91.2, "attrs": { "value": "1000" } },
+    { "type": "board-ssd1306", "id": "oled1", "top": 201.8, "left": 74.6, "attrs": { "i2cAddress": "0x3c" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "potTemp:VCC", "esp:3V3", "red", [ "v-19.2", "h192" ] ],
+    [ "potTemp:GND", "esp:GND.1", "black", [ "v19.2", "h201.6" ] ],
+    [ "potTemp:SIG", "esp:34", "green", [ "v38.4", "h211.2" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v28.8", "h-124.8" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v48", "h-134.4" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "green", [ "v67.2", "h-115.2" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "blue", [ "v86.4", "h-115.2" ] ],
+    [ "btnEmergency:1.l", "esp:14", "purple", [ "h-38.4", "v-48" ] ],
+    [ "btnEmergency:2.r", "esp:GND.2", "black", [ "h38.4", "v-76.8" ] ],
+    [ "ledHeart:A", "rHeart:1", "red", [ "h28.8" ] ],
+    [ "rHeart:2", "esp:26", "red", [ "h67.2", "v-38.4" ] ],
+    [ "ledHeart:C", "esp:GND.1", "black", [ "h-19.2", "v-76.8", "h172.8" ] ],
+    [ "ledStatus:A", "rStatus:1", "blue", [ "h28.8" ] ],
+    [ "rStatus:2", "esp:27", "blue", [ "h57.6", "v-76.8" ] ],
+    [ "ledStatus:C", "esp:GND.1", "black", [ "h-28.8", "v-115.2", "h182.4" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-28.8", "h-134.4" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v-38.4", "h-153.6" ] ],
+    [ "oled1:SCL", "esp:22", "green", [ "v-48", "h-172.8" ] ],
+    [ "oled1:SDA", "esp:21", "blue", [ "v-57.6", "h-192" ] ]
+  ],
+  "dependencies": {}
+}
