@@ -193,9 +193,10 @@ O display OLED alterna automaticamente entre quatro telas:
 
 ## 11. Integrantes
 
-- Nome do integrante 1 - RM
-- Nome do integrante 2 - RM
-- Nome do integrante 3 - RM
+- Ruan Luca Feliciano de Carvalho
+- Mirelly Sousa alves 
+- Gabriely Bonfim
+- Henrique Rodrigues
 
 ## 12. Link do video
 
@@ -203,7 +204,7 @@ Adicionar link do video da apresentacao.
 
 ## 13. Link do GitHub
 
-Adicionar link do repositorio GitHub.
+[Link do repositorio GitHub.](https://github.com/RuanLuca/GS-IOT)
 
 ## Relacao com a disciplina
 
