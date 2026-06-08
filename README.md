@@ -200,7 +200,7 @@ O display OLED alterna automaticamente entre quatro telas:
 
 ## 12. Link do video
 
-Adicionar link do video da apresentacao.
+[Link do video da apresentacao.](https://youtu.be/cWgsqOkcnyw)
 
 ## 13. Link do GitHub
 
